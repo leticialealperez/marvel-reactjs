@@ -1,3 +1,0 @@
-export const CHARACTERS_ACTIONS = {
-  GETALL: '@GET/CHARACTERS',
-}

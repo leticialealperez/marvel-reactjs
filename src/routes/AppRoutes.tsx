@@ -6,6 +6,7 @@ import Home from '../pages/home/Home'
 import Faqs from '../pages/faqs/Faqs'
 import Characters from '../pages/characters/Characters'
 import User from '../pages/user/User'
+import ComicsName from '../pages/characters/Comics'
 
 const AppRoutes: React.FC = () => {
   return (
@@ -17,6 +18,10 @@ const AppRoutes: React.FC = () => {
         <Route
           path="/characters"
           element={<LayoutDefault component={Characters} />}
+        />
+        <Route
+          path="/comics"
+          element={<LayoutDefault component={ComicsName} />}
         />
         <Route path="/users" element={<LayoutDefault component={User} />} />
       </Routes>

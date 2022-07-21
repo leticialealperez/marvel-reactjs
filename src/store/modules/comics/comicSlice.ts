@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export type Comics = {
   id: string
@@ -7,13 +7,13 @@ export type Comics = {
   imgPath: string
 }
 
-type initialState = {
+type InitialState = {
   loading: boolean
   comics: Comics[]
-  error: ''
+  error: string
 }
 
-const initialState: initialState = {
+const initialState: InitialState = {
   loading: false,
   comics: [],
   error: '',
@@ -26,7 +26,7 @@ const comicSlice = createSlice({
     requestComic(state) {
       state.loading = true
     },
-    createComic(state, action) {
+    createComic(state: InitialState, action: PayloadAction<Comics[]>) {
       state.loading = false
       state.comics = action.payload
       state.error = ''
@@ -45,3 +45,12 @@ const comicSlice = createSlice({
 export const { createComic, clearComic, requestComic, requestComicError } =
   comicSlice.actions
 export default comicSlice.reducer
+
+const store = { loading: false, comics: [], error: '' }
+
+function alteraLoading() {
+  store.loading = true
+}
+
+// useDispatch - alterar a store
+// useSelector - para ler o que está na store
